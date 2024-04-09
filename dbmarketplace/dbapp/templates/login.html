@@ -1,0 +1,57 @@
+
+<style>
+        .container {
+            width: 300px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button, .home-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+        .home-btn {
+            background-color: #555; /* Slightly different color for home button */
+        }
+        .error {
+            color: red;
+            margin-bottom: 15px;
+        }
+    </style>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Login Form</h2>
+    {% if error_message %}
+    <div class="error">{{ error_message }}</div>
+    {% endif %}
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" class="form-button">Login</button>
+    </form>
+    <a href="{% url 'register' %}" class="query-link">Don't have an account?
+        Register here</a>
+</div>
+{% endblock %}

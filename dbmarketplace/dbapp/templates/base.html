@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DB Marketplace</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+        }
+        footer {
+          background-color: #333;
+          color: white;
+          text-align: center;
+          padding: 1em;
+      }
+        nav {
+          padding-left: 20px;
+      }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+        button, .form-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'run_query' %}">Run Query</a>
+        <!-- Add more navigation links if necessary -->
+      </nav>
+    </header>
+
+    <main class="container">
+      {% block content %}
+      <!-- Content from child templates will go here -->
+      {% endblock content %}
+    </main>
+
+    <footer>
+      <p>© 2024 DB Marketplace</p>
+    </footer>
+
+    <!-- Scripts can be added later if JavaScript functionality is needed -->
+  </body>
+</html>
